@@ -156,7 +156,7 @@ def reorder_level(request, pk):
 def list_history(request):
 	header = 'HISTORY DATA'
 	queryset = StockHistory.objects.all()
-	form = StockSearchForm(request.POST or None)
+	form = StockHistorySearchForm(request.POST or None)
 	context = {
 		"header": header,
 		"queryset": queryset,
@@ -164,8 +164,15 @@ def list_history(request):
 	}
 	if request.method == 'POST':
 		category = form['category'].value()
+		#queryset = StockHistory.objects.filter(
+								#item_name__icontains=form['item_name'].value()
+								#)
 		queryset = StockHistory.objects.filter(
-								item_name__icontains=form['item_name'].value()
+								item_name__icontains=form['item_name'].value(),
+								last_updated__range=[
+														form['start_date'].value(),
+														form['end_date'].value()
+													]
 								)
 
 		if (category != ''):
