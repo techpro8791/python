@@ -6,6 +6,7 @@ category_choice = (
 		('IT Equipment', 'IT Equipment'),
 		('Phone', 'Phone'),
 	)
+
 class Category(models.Model):
 	name = models.CharField(max_length=50, blank=True, null=True)
 	def __str__(self):

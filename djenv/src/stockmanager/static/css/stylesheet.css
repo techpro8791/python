@@ -138,3 +138,17 @@ th {
     width: 50px;
     float: left;
 }
+
+.buttons-under-table{
+  display: block;
+  cursor: pointer;
+  float: left;
+  padding: 10px 24px;
+  border: 1px box-shadow;
+}
+
+.buttons-under-table:after{
+  content: "";
+  clear: both;
+  display: table;
+}
