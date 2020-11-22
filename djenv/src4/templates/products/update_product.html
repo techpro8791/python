@@ -7,17 +7,17 @@
         <br><br><br>
         <div class="content-panel">
             <h3 class="text-center">{{ request.user.retailer_user.retailer.name }} <small>Product Update Form</small></h3>
-             <span class="item_list_error text-center" style="color:red; display:none">item is already exist</span>
+             <span class="item_list_error text-center" style="color:red; display:none">product is already exist</span>
             <div class="panel-body">
                 <form class="form-horizontal add-product-form" action="{% url 'product:update_product' pk=object.id %}" method="post" autocomplete="off">
                     <div class="form-group">
                         <div class="col-sm-12">
                             {% csrf_token %}
-                            <label><strong>Item Name</strong></label>
+                            <label><strong>Product Name</strong></label>
                             <input type="text" class="form-control product_name" name="name"   placeholder="Product Name" value="{{ object.name|title }}"><br>
-                            <label><strong>Item Brand Name</strong></label>
+                            <label><strong>Category</strong></label>
                             <input type="text" class="form-control brand_name" name="brand_name" placeholder="Brand Name" value="{{ object.brand_name|title }}"><br>
-                            <label><strong>Item Unit Type</strong></label>
+                            <label><strong>Unit Type</strong></label>
                              <input type="text" class="form-control unit_type" name="unit_type" placeholder="Unit Type" list="unit-list" value="{{ object.unit_type }}">
                                     <datalist id="unit-list">
                                         <option value="Kilogram"></option>
@@ -26,11 +26,11 @@
                                         <option value="Quantity"></option>
                                     </datalist>
                                     <br>
-                            <label><strong>Item Barcode</strong></label>
+                            <label><strong>Product Barcode</strong></label>
                             <input type="number" class="form-control bar_code" name="bar_code" value="{{ object.bar_code }}">
                             <span style="color: lightseagreen">Note: For empty value system will generate barcode automatically</span><br>
                             <input type="hidden" name="retailer" value="{{ request.user.retailer_user.retailer.id }}">
-                            <button type="submit" id="save" class="btn btn-primary product-submit-btn" style="float: right" >Update Item</button>
+                            <button type="submit" id="save" class="btn btn-primary product-submit-btn" style="float: right" >Update Product</button>
                         </div>
                     </div>
                 </form>
