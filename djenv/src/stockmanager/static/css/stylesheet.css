@@ -59,6 +59,7 @@ th {
 	padding-right: 5px;
 	padding-bottom: 20px;
 	box-shadow: 12px 12px 10px #2e6da4;
+  overflow-x: auto;
 }
 
 .header {
